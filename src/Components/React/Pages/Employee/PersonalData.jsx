@@ -48,10 +48,10 @@ const PersonalData = () => {
                             <input type={field === 'Personal email*' ? 'email' : 
                                         field === 'Phone*' ? 'tel' : 
                                         field === 'Date of birth*' ? 'date': 'text'}
-                                name={field} id=""
+                                name={field} 
                                 value={formFields[field]}
                                 onChange={event => handleFormChanges(event)}
-                                    />
+                                />
                                 
                         }
 

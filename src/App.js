@@ -1,13 +1,12 @@
-// import './App.css';
-import PersonalData from "./Components/React/Pages/Employee/PersonalData"
-import Homepage from "./Components/React/Pages/Homepage"
+import UnrestrictedRoutes from "./Components/React/Routes/UnrestrictedRoutes";
+import RestrictedRoutes from "./Components/React/Routes/RestrictedRoutes";
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <Homepage />
-      </header>
+      <UnrestrictedRoutes />
+      <RestrictedRoutes />
     </div>
   );
 }
