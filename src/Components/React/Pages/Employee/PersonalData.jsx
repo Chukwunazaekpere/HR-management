@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "../../Styles/PersonalData.css";
 
 
 const PersonalData = () => {
@@ -22,14 +22,13 @@ const PersonalData = () => {
         setFormFields(updatedFields)
     }
     return(
-        <div>
+        <div className='new-emp-form form-group'>
             {
                 fields.map(field => (
-                    <section key={field}>
-                        <label>{field}:</label>
+                    <section className='emp-field' key={field}>
                         {
                             field === 'Gender' ?
-                            <select name={field} onChange={event => handleFormChanges(event)}
+                            <select className='form-control' name={field} onChange={event => handleFormChanges(event)}
                                     value={formFields[field]}>
                                 <option>Select gender</option>
                                 <option value="Male">Male</option>
@@ -37,7 +36,7 @@ const PersonalData = () => {
                             </select>
                             :
                             field === 'Marital-status' ?
-                            <select name={field} onChange={event => handleFormChanges(event)}
+                            <select className='form-control' name={field} onChange={event => handleFormChanges(event)}
                                     value={formFields[field]}>
                                 <option>Select marital status</option>
                                 <option value="Single">Single</option>
@@ -45,11 +44,12 @@ const PersonalData = () => {
                                 <option value="Divorced">Divorced</option>
                             </select>
                             :
-                            <input type={field === 'Personal email*' ? 'email' : 
+                            <input className='form-control' type={field === 'Personal email*' ? 'email' : 
                                         field === 'Phone*' ? 'tel' : 
                                         field === 'Date of birth*' ? 'date': 'text'}
                                 name={field} 
                                 value={formFields[field]}
+                                placeholder={field}
                                 onChange={event => handleFormChanges(event)}
                                 />
                                 
