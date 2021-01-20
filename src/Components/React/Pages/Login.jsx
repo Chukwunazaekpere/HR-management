@@ -3,6 +3,9 @@ import React, { useState } from "react";
 import "../Styles/Login.css";
 import { Link } from "react-router-dom";
 import "animate.css";
+import RemoveRedEyeIcon from '@material-ui/icons/RemoveRedEye';
+import SaveAltIcon from '@material-ui/icons/SaveAlt';
+
 
 const Login = () => {
   const [formFields, setFormFields] = useState({
@@ -42,12 +45,18 @@ const Login = () => {
           required={true}
           onChange={(event) => handleFormChanges(event)}
           />
+
       </form>
       <p className="login-button">
     <h5 className='login-title'>Log in</h5>
 
         <Link className="btn btn-info" to="/dashboard">
           Let's go
+         
+          <span className='rot-icon'>
+          <SaveAltIcon /> 
+
+          </span>
         </Link>
         <Link className="forgot">Forgot password?</Link>
       </p>

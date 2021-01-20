@@ -26,7 +26,6 @@ const PersonalData = () => {
     })
     const fields = Object.keys(formFields)
     const values = Object.values(formFields)
-    console.log('values: ', values)
 
     const handleFormChanges = (event) =>{
         let updatedFields = formFields
@@ -46,7 +45,7 @@ const PersonalData = () => {
     }
     
     return(
-        <div className='animate__animated animate__swing'>
+        <div className='personal-data animate__animated animate__swing'>
             {
                 !addNext ?
                 <section className='new-emp-form form-group'>
@@ -86,26 +85,10 @@ const PersonalData = () => {
                     
                             ))
                         }
-                    {
-                        values.forEach(value => {
-                            let count = 0
-                            if(value !== ""){
-                                count++
-                            }
-                            if(count === values.length){
-                                <span className='next-buttons'>
-                                    <Button variant='constrained' className='next-btn btn btn-primary' onClick={() => {handleAddEmp(dispatch(addEmployee({formFields})))}}
-                                disabled={false}>{'Next>>'}</Button>
-                                </span>
-                            }else{
-                                <span className='next-buttons'>
-                                    <Button variant='constrained' className='next-btn btn btn-primary' onClick={() => {handleAddEmp(dispatch(addEmployee({formFields})))}}
-                                    disabled={true}>{'Next>>'}</Button>
-                                </span>
-                            }
-                        })
-                        
-                    }
+                   <span className='next-buttons'>
+                        <Button variant='constrained' className='next-btn btn btn-primary' onClick={() => {handleAddEmp(dispatch(addEmployee({formFields})))}}
+                        disabled={"" in values ? true : false}>{'Next>>'}</Button>
+                    </span>
                 </section>
                 :
 
