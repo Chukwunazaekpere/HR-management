@@ -1,0 +1,40 @@
+
+.personal-data{
+    display: flex;
+    
+}
+
+.new-emp-form{
+    box-shadow: 0 5px 7px 0 rgba(0,0,0,0.3), 0 10px 12px 0 rgba(0,0,0,0.23);
+    background: linear-gradient(45deg, aliceblue, white);
+    margin-left: 11.5em;
+    margin-top: 10vh;
+    display: flex;
+    flex-flow: row wrap;
+    width: 83%;
+    height: 40em;
+}
+
+
+.new-emp-form h4{
+    margin-top: -35px;
+}
+
+.emp-field{
+    width: 40%;
+    padding-left: 1.3em;
+    padding-right: 1.3em;
+}
+
+.next-btn{
+    display: flex;
+    margin-top: 20px;
+    height: 40px;
+    margin-left: 15em;
+    font-weight: 400;
+}
+
+.next-buttons{
+    float: right;
+    margin-left: 50px;
+}
