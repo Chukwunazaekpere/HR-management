@@ -4,45 +4,55 @@ import "../Styles/Login.css";
 import { Link } from "react-router-dom";
 import "animate.css";
 
-
 const Login = () => {
-    const [formFields, setFormFields] = useState({
-        username: "",
-        password: "",
-    })
+  const [formFields, setFormFields] = useState({
+    username: "",
+    password: "",
+  });
 
-    const handleFormChanges = (event) => {
-        const name = event.target.name
-        const value = event.target.value
+  const handleFormChanges = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
 
-        const updatedForm = formFields
-        updatedForm[name] = value
-        setFormFields(updatedForm)
-    }
+    const updatedForm = formFields;
+    updatedForm[name] = value;
+    setFormFields(updatedForm);
+  };
 
-    return(
-        <div className='login-container form-group
-                animate__animated animate__flash'>
-            <h3 className='login-title'>Log in</h3>
-            <form  method="post">
-                <label className='log-label'>User ID:</label>
-                <input className="form-control" type="text" name="username"
-                    required={true}
-                    onChange={event => handleFormChanges(event)}
-                />
-                <br/>
-                <label className='log-label'>Password:</label>
-                <input className="form-control" type="password" name="password"
-                    required={true}
-                    onChange={event => handleFormChanges(event)}
-                />
-            </form>
-            <p className='login-button'>
-                <Link className='btn btn-info' to="/dashboard">Let's go</Link>
-                <Link className='forgot'>Forgot password?</Link>
-            </p>
-        </div>
-    )
-}
+  return (
+    <div
+      className="login-container 
+      animate__animated animate__flash"
+    >
+            <form method="post">
+        <label>User ID:</label>
+        <input
+          className="form-control"
+          type="text"
+          name="username"
+          required={true}
+          onChange={(event) => handleFormChanges(event)}
+          />
+        <br />
+        <label>Password:</label>
+        <input
+          className="form-control"
+          type="password"
+          name="password"
+          required={true}
+          onChange={(event) => handleFormChanges(event)}
+          />
+      </form>
+      <p className="login-button">
+    <h5 className='login-title'>Log in</h5>
+
+        <Link className="btn btn-info" to="/dashboard">
+          Let's go
+        </Link>
+        <Link className="forgot">Forgot password?</Link>
+      </p>
+    </div>
+  );
+};
 
 export default Login;

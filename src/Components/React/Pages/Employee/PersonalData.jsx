@@ -25,7 +25,8 @@ const PersonalData = () => {
         'Town*': ''
     })
     const fields = Object.keys(formFields)
-
+    const values = Object.values(formFields)
+    console.log('values: ', values)
 
     const handleFormChanges = (event) =>{
         let updatedFields = formFields
@@ -34,7 +35,6 @@ const PersonalData = () => {
         updatedFields[fieldName] = fieldValue
 
         setFormFields({...updatedFields})
-        console.log("Fields: ", updatedFields)
     }
 
 
@@ -56,7 +56,7 @@ const PersonalData = () => {
                                 <section className='emp-field' key={field}>
                                     {
                                         field === 'Gender' ?
-                                        <select className='form-control' name={field}
+                                        <select className='form-control' name={field} required={true}
                                         value={formFields['field']} onChange={event => handleFormChanges(event)}>
                                             <option>Select gender</option>
                                             <option value="Male">Male</option>
@@ -64,7 +64,7 @@ const PersonalData = () => {
                                         </select>
                                         :
                                         field === 'Marital-status' ?
-                                        <select className='form-control' name={field} 
+                                        <select className='form-control' name={field} required={true}
                                         value={formFields['field']} onChange={event => handleFormChanges(event)}>
                                             <option>Select marital status</option>
                                             <option value="Single">Single</option>
@@ -78,6 +78,7 @@ const PersonalData = () => {
                                         name={field} 
                                         value={formFields['field']}
                                         placeholder={field}
+                                        required={true}
                                         onChange={event => handleFormChanges(event)}
                                         />
                                     }
@@ -85,11 +86,26 @@ const PersonalData = () => {
                     
                             ))
                         }
-
-                <span className='next-buttons'>
-                    <Button variant='constrained' className='next-btn btn btn-primary' onClick={() => {handleAddEmp(dispatch(addEmployee({formFields})))}}
-                    disabled={false}>{'Next>>'}</Button>
-                </span>
+                    {
+                        values.forEach(value => {
+                            let count = 0
+                            if(value !== ""){
+                                count++
+                            }
+                            if(count === values.length){
+                                <span className='next-buttons'>
+                                    <Button variant='constrained' className='next-btn btn btn-primary' onClick={() => {handleAddEmp(dispatch(addEmployee({formFields})))}}
+                                disabled={false}>{'Next>>'}</Button>
+                                </span>
+                            }else{
+                                <span className='next-buttons'>
+                                    <Button variant='constrained' className='next-btn btn btn-primary' onClick={() => {handleAddEmp(dispatch(addEmployee({formFields})))}}
+                                    disabled={true}>{'Next>>'}</Button>
+                                </span>
+                            }
+                        })
+                        
+                    }
                 </section>
                 :
 
