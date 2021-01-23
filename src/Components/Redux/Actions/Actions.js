@@ -19,12 +19,12 @@ export const removeEmployee = (emp_names) => {
     })
 }
 
-export const getDBRecords = (data) =>{
+export const getDBRecords = (dbRecords) =>{
 
     return({
         type: actions.FETCH_RECORDS,
         payload:{
-            records: data
+            records: dbRecords
         }
     })
 }

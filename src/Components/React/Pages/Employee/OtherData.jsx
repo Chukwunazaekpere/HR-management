@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "../../Styles/PersonalData.css";
 
-import {Button} from "@material-ui/core";
 import FormMap from "../../Presentational/FormMap";
 
 import BankPension from "../Employee/BankPension";
@@ -10,7 +9,8 @@ import "animate.css"
 import {Redirect} from "react-router-dom";
 
 
-const OtherData = () => {
+const OtherData = (props) => {
+    console.log("In other data:", props)
     const [formFields, setFormFields] = useState({
         'Firstname*': '',
         'Lastname*': '',
@@ -68,13 +68,23 @@ const OtherData = () => {
                                 }
 
                             </section>
-                    
                         ))
                     }
-                    <Button variant='constrained' color='primary' onClick={() => {handleAddEmp('previous')}}
-                    disabled={false}>{'<< Previous'}</Button>
-                    <Button variant='constrained' className='next-btn' color='primary' onClick={() => {handleAddEmp('submit', true)}}
-                    disabled={false}>{'Add New Employee'}</Button>
+                        <span className="next-buttons">
+                            <button className='btn btn-info' type="submit"  onClick={() => {
+                                handleAddEmp('next');
+                            }}>
+                                {'<< Previous'}
+
+                            </button>
+                        </span>
+                        <span className="next-buttons">
+                            <button className='btn btn-info' type="submit" 
+                            onClick={() => {handleAddEmp('submit', true)}
+                            }>
+                                {'Add New Employee'}
+                            </button>
+                        </span>
                 </section>
                 :
                 <section>
@@ -83,15 +93,13 @@ const OtherData = () => {
                         pageSection === 'previous' ?
                         <BankPension /> :
                         pageSection === 'submit' ?
-                        <Redirect to="/confirmation" /> :
+                        <Redirect children={{formData: [props.formData, {otherData: formFields}]}} to="/confirmation" /> :
                         pageSection === false
                     }
                 </section>
             }
-           
         </div>
     )
 }
-
 
 export default OtherData;

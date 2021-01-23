@@ -9,7 +9,8 @@ import EmployeeInfo from "../Employee/EmplyeeInfo"
 
 
 
-const BankPension = () => {
+const BankPension = (props) => {
+    console.log("in bank and Pen: ", props.formData)
     const [formFields, setFormFields] = useState({
         'Bank Name*': '',
         'Account Number*': '',
@@ -24,6 +25,7 @@ const BankPension = () => {
         const value = event.target.value
         const updatedFields = formFields
         updatedFields[name] = value
+
         setFormFields(updatedFields)
     }
 
@@ -45,8 +47,8 @@ const BankPension = () => {
                                 {
                                     
                                     <input className='form-control' 
-                                    type={field === 'Account Number*' || 'Bank Verification Number*' || 'Pension Number*' ? 
-                                    'number' : 'text'}
+                                    type={field === 'Pension Manager*' ? 'text' : 
+                                          field === 'Bank Name*' ? 'text' : 'number'}
                                     name={field} 
                                     value={formFields['field']}
                                     placeholder={field}
@@ -59,22 +61,28 @@ const BankPension = () => {
                     
                         ))
                     }
+                <span className="next-buttons">
+                    <button className='btn btn-info' type="submit"  onClick={() => {
+                        handleAddEmp('previous');
+                    }}>
+                        {'<< Previous'}
+                    </button>
 
-                    <Button variant='constrained' color='primary' onClick={() => {handleAddEmp('previous')}}
-                    disabled={false}>{'<< Previous'}</Button>
-
-                    <span className='next-buttons'>
-
-                        <Button variant='constrained' className='next-btn btn btn-primary' onClick={() => {handleAddEmp('next')}}
-                        disabled={false}>{'Next>>'}</Button>
-                    </span>
+                </span>
+                <span className="next-buttons">
+                    <button className='btn btn-info' type="submit"  onClick={() => {
+                        handleAddEmp('next');
+                    }}>
+                        {`Next >>`}
+                    </button>
+                </span>
                 </section>
                 :
                 <section>
                     <FormMap />
                     {
                         pageSection === 'next' ?
-                        <OtherData /> :
+                        <OtherData formData={{formData: [props.formData, {bankPension: formFields}]}} /> :
                         pageSection === 'previous' ?
                         <EmployeeInfo /> :
                         pageSection === false

@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import "../../Styles/PersonalData.css";
 
-import {Button} from "@material-ui/core";
 import FormMap from "../../Presentational/FormMap";
 
 import BankPension from "../Employee/BankPension";
 import PersonalData from "../Employee/PersonalData"
 
 
-
-
-const EmployeeInfo = () => {    
+const EmployeeInfo = (props) => {   
+    const personalData = props.formData
+    console.log("In Emp info: ", personalData)
     const [formFields, setFormFields] = useState({
         'Staff ID*': '',
         'Official Email*': '',
@@ -68,18 +67,25 @@ const EmployeeInfo = () => {
                     
                         ))
                     }
-                    <Button variant='constrained' color='primary' onClick={() => {handleAddEmp('previous')}}
-                    disabled={false}>{'<< Previous'}</Button>
-
-                    <Button variant='constrained' className='next-btn' onClick={() => {handleAddEmp('next')}}
-                    disabled={false}>{'Next>>'}</Button>
+                    <span className="next-buttons">
+                        <button className='btn btn-info' type="submit"  onClick={() => {
+                            handleAddEmp('previous');
+                        }}
+                        disabled={"" in values ? true : false}>{'<< Previous'}</button>
+                    </span>
+                    
+                    <span className="next-buttons">
+                        <button className='btn btn-info' type="submit"  onClick={() => {
+                            handleAddEmp('next');
+                        }}>{`Next >>`}</button>
+                    </span>
                 </section>
                 :
                 <section>
                     <FormMap />
                     {
                         pageSection === 'next' ?
-                        <BankPension /> :
+                        <BankPension formData={{formData: [personalData, {employeeInfo: formFields}]}} /> :
                         pageSection === 'previous' ?
                         <PersonalData /> :
                         pageSection === false

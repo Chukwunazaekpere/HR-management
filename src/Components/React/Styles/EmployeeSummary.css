@@ -4,7 +4,7 @@
     width: 90%;
     margin: 0%;
     padding: 0%;
-    height: 150vh;
+    height: 100vh;
     float: right;
 
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -22,7 +22,7 @@
 
 
 .item-holder{
-    margin-top: 15px;
+    margin-top: 10px;
     display: flex;
     flex-flow: row wrap;
     margin-left: 9em;

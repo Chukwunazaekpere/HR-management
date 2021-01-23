@@ -4,30 +4,35 @@ import "../Styles/Sidebar.css";
 import DashboardIcon from '@material-ui/icons/Dashboard';
 
 
-import { Button } from "@material-ui/core";
 
 const Sidebar = () => {
   const menus = [
-    "Dashboard",
-    "Human Resources",
-    "Employees Management",
+    "",
+    "Human-Resources",
+    "Employees-Management",
     "Finance",
   ];
 
   const active = {
-    // color: "blue",
-    backgroundColor: "rgb(39, 122, 133);",
-  };
+    backgroundColor: 'rgb(39, 122, 133)',
+      fontWeight: 'bold',
+      boxShadow: '0 4px 5px 0 rgba(0, 0, 0, 0.11) 0 3px 5px 0 rgba(0, 0, 0, 0.21)',
+    }
+
   return (
     <div className="sidebar-container">
       <h4 className='sidebar-title'>Head of Department</h4>
+      <section className="sidebar-items" >
       {menus.map((menu) => (
-        <section className="sidebar-items" key={menu}>
-            <NavLink to={menu === "Employees Management" ? <Redirect to={`/dashboard/:${menu}`} /> : ""} className="mt-3 btn btn-info temp-active" activeStyle={active}>
-                {menu}
+        <ul key={menu}>
+          <li>
+            <NavLink  to={`/dashboard/${menu.toLowerCase()}`} className="mt-3 btn" activeStyle={active}>
+              {menu === "" ? "Dashboard" : menu }
             </NavLink>
-        </section>
+          </li>
+        </ul>
       ))}
+      </section>
     </div>
   );
 };

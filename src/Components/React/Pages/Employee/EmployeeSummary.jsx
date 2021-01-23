@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "../../Styles/EmployeeSummary.css";
-import { Button } from "@material-ui/core";
 
 import {useSelector, useDispatch } from "react-redux"
 import {Link} from "react-router-dom";
@@ -13,6 +12,7 @@ import PersonalData from "../Employee/PersonalData"
 import FormMap from "../../Presentational/FormMap";
 import axios from 'axios'
 import {getDBRecords} from "../../../Redux/Actions/Actions";
+
 
 const EmployeeSummary = () =>{
     const emp_menu = ['Total Employees', 'Current Employees', 'Pending Employees',

@@ -11,9 +11,9 @@ const employeesReducer = (state=[], action) => {
             ])
 
         case actions.FETCH_RECORDS:
-            console.log("Trasfferring records",action.payload.records['data'])
+            console.log("Trasfferring records",action.payload.records['dbRecords'])
             return({
-                ...action.payload.records['data']
+                ...action.payload.records['dbRecords']
             })
 
         default:

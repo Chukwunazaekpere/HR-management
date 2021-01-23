@@ -23,8 +23,8 @@
   
     background-color: rgb(39, 122, 133);
     width: 16em;
-    margin-left: -.22em;
-    margin-top: -12em;
+    margin-left: .5em;
+    margin-top: -19em;
     margin-bottom: 13em;
   }
 
@@ -44,6 +44,7 @@ label {
   padding: 15px;
   text-align: center;
   font-weight: 700;
+  margin-top: 3em;
 
 }
 

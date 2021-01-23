@@ -8,8 +8,8 @@ import "animate.css";
 
 const Homepage = () => {
     const [toggleLogin, setToggleLogin] = useState(false)
+    
     const showLogin = () =>{
-        console.log("Clicked!")
         setToggleLogin(!toggleLogin)
     }
 
@@ -26,7 +26,6 @@ const Homepage = () => {
                 </section>
             :
                 <section className='login-comp'>
-
                     <Login />
                 </section>
             }
