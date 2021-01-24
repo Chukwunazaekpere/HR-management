@@ -11,11 +11,13 @@
     font-size: 15px;
     margin-left: -5em;
 }
+
 .add-emp{
   box-shadow: 0px 2px 3px 0 rgba(0, 0, 0, 0.12), 0 3px 2px 0 rgba(0, 0, 0, 0.15);
 
     margin-left: 12em;
     margin-top: 1rem;
+
     color: ;
 }
 
@@ -28,6 +30,7 @@
     margin-left: 9em;
 }
 
+
 .item-details{
     list-style: none;
     margin-top: 20px;
@@ -36,11 +39,22 @@
     height: 25vh;
     box-shadow: 0 5px 7px 0 rgba(0,0,0,0.3), 0 10px 12px 0 rgba(0,0,0,0.23);
 }
+
+.item-details:hover{
+    transition: all 1s linear;
+    transform: scale(1.13);
+}
+
+.add-emp-btn{
+    background: rgb(39, 122, 133)!important;
+}
+
 .item-details p{
     font-weight: 700;
     padding-left: 10px;
     padding-top: 10px;
 }
+
 .rectangle{
     width: 35em;
     height: 27vh;

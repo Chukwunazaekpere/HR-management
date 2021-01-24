@@ -49,7 +49,7 @@ const EmployeeSummary = () =>{
                 !addEmp ?
                 <section>
                     <section className='add-emp'>
-                        <Link onClick={() => handleAddEmp()} className='btn btn-primary'>Add New Employee <BsFillPersonPlusFill /></Link>
+                        <Link onClick={() => handleAddEmp()} className='btn add-emp-btn'>Add New Employee <BsFillPersonPlusFill /></Link>
                     </section>
                     <hr/>
                     <section className='item-holder'>
@@ -58,15 +58,13 @@ const EmployeeSummary = () =>{
                                 <ul  key={item}>
                                     <li className='item-details'>
                                         <div> 
-                                            {/* <span className='rectangle'> */}
                                             <HiUserGroup color='darkolivegreen' size='40px'/> 
-                                            {/* </span> */}
                                             <span className='mb-5 text-cat'>
                                                 {item} <br/>
                                                 <span className='mb-4 total-emp'>{emp_size}</span>
                                             </span> 
                                         </div>
-                                            <br/>
+                                            <br/><br/>
                                             <hr/>
                                             {/* <Button >Details</Button> */}
                                     </li>
