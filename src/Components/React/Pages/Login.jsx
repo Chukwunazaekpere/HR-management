@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import "../Styles/Login.css";
 import { Redirect, Link } from "react-router-dom";
@@ -24,20 +24,32 @@ const Login = (props) => {
 
   let dashboard = false
 
-  const handlePageRedirect = () =>{
-    dashboard = true
-    console.log("dash val: ", dashboard)
+  const handlePageRedirect = () => {
+      const formValues = Object.values(formFields)
+      let count = 0
+      formValues.forEach(value => {
+        if(value !== ""){
+          count++
+        }
+      })
+      if(count === formValues.length){
+        dashboard = true
+        console.log("dash vals: ", dashboard)
+      }
+
+      return dashboard
   }
 
   return (
     <>
     {
-      dashboard === false ? 
+      dashboard === true ?
+      <Redirect to="/dashboard" />
+      :
       <div
         className="login-container 
         animate__animated animate__flash"
       >
-        <form method='get' action='/dashboard' onSubmit={handlePageRedirect}>
           <label>User ID:</label>
           <input
             className="form-control"
@@ -56,23 +68,21 @@ const Login = (props) => {
             onChange={(event) => handleFormChanges(event)}
             />
           <p className="login-button">
-            <button onClick={() => handlePageRedirect()} type='submit' className="btn btn-info" >
+            <Link to={() => handlePageRedirect() ? "/dashboard" : "/"}  type='submit' className="btn btn-info" >
             Let's go
             <span className='rot-icon'>
               <SaveAltIcon /> 
             </span>
-          </button>
+          </Link>
           <Link className="mt-3 forgot">Forgot password?</Link>
           
           </p>
-        </form>
           <h5 className='login-title'>Log in</h5>
-        
       </div>
-    :
-  <Redirect to='/dashboard' /> 
-  }
+    
+    }
   </>
+
   );
 };
 
