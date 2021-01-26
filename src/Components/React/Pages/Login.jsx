@@ -69,8 +69,8 @@ const Login = (props) => {
             />
           <p className="login-button">
             <Link to={() => handlePageRedirect() ? "/dashboard" : "/"}  type='submit' className="btn btn-info" >
-            Let's go
-            <span className='rot-icon'>
+            Onwards
+            <span className='ml-4 rot-icon'>
               <SaveAltIcon /> 
             </span>
           </Link>

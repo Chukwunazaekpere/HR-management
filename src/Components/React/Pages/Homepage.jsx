@@ -18,10 +18,14 @@ const Homepage = () => {
             {
                 !toggleLogin ?
                 <section className='wel-text'>
-                    <h4 className=" animate__animated animate__bounce">Welcome...</h4>
+                    <h2 className=" animate__animated animate__bounce">Welcome...</h2>
+                    <h4 className=" animate__animated animate__heartBeat">
+                        This is Chukwunazaekpere's portfolio - site (an HR - management system)
+                        <br />  powered by Django, React and MongoDB.
+                    </h4>
                     <Button color='primary' className='homelogin-button' 
                         variant='contained' onClick={() => {showLogin()} }>
-                        Log in
+                        Explore
                     </Button>
                 </section>
             :
